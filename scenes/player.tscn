@@ -1,0 +1,61 @@
+[gd_scene load_steps=13 format=3 uid="uid://l4b7gdrw4kgl"]
+
+[ext_resource type="Script" uid="uid://ywd8hbjr5sah" path="res://scripts/player.gd" id="1_kon7b"]
+[ext_resource type="Texture2D" uid="uid://cjt06n0tigmgq" path="res://resources/InvIcons/0.png" id="3_5ifl2"]
+[ext_resource type="Texture2D" uid="uid://dl7lp7nbnhpoe" path="res://resources/InvIcons/1.png" id="3_ogh2q"]
+[ext_resource type="Texture2D" uid="uid://drtlk6l60hyv5" path="res://resources/InvIcons/2.png" id="4_oqgi6"]
+[ext_resource type="Texture2D" uid="uid://d2k3yq08bo2do" path="res://resources/InvIcons/10.png" id="4_ylwrv"]
+[ext_resource type="Texture2D" uid="uid://dk2hlj804xskv" path="res://resources/InvIcons/4.png" id="5_ailpt"]
+[ext_resource type="Texture2D" uid="uid://stu61cbdc76" path="res://resources/InvIcons/11.png" id="5_dwira"]
+[ext_resource type="Texture2D" uid="uid://dbqf8phltkjgj" path="res://resources/InvIcons/5.png" id="6_k7n6g"]
+[ext_resource type="Texture2D" uid="uid://b6xecsmxhpjrt" path="res://resources/InvIcons/3.png" id="7_y7tty"]
+[ext_resource type="Texture2D" uid="uid://cjlm0251vvbqg" path="res://resources/InvIcons/7.png" id="8_tq5y2"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_3ahcf"]
+height = 3.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_b6oov"]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_kon7b")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+
+[node name="RayCast3D" type="RayCast3D" parent="Camera3D"]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, -0.640909)
+target_position = Vector3(0, 0, -8)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("CylinderShape3D_3ahcf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.75, 0, 0, 0, 1, 0, 1.75, 0)
+mesh = SubResource("CylinderMesh_b6oov")
+
+[node name="Hotbar" type="ItemList" parent="."]
+offset_left = 51.0
+offset_top = 54.0
+offset_right = 147.0
+offset_bottom = 690.0
+item_count = 9
+max_columns = 4
+item_0/text = "1"
+item_0/icon = ExtResource("3_5ifl2")
+item_1/text = "2"
+item_1/icon = ExtResource("3_ogh2q")
+item_2/text = "3"
+item_2/icon = ExtResource("4_oqgi6")
+item_3/text = "4"
+item_3/icon = ExtResource("5_ailpt")
+item_4/text = "5"
+item_4/icon = ExtResource("6_k7n6g")
+item_5/text = "6"
+item_5/icon = ExtResource("7_y7tty")
+item_6/text = "7"
+item_6/icon = ExtResource("8_tq5y2")
+item_7/text = "8"
+item_7/icon = ExtResource("4_ylwrv")
+item_8/text = "9"
+item_8/icon = ExtResource("5_dwira")
